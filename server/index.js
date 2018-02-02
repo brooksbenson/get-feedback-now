@@ -5,4 +5,4 @@ app.get('/', (req, res) => {
   res.send({hi: 'hello'});
 });
 
-app.listen(3000);
+app.listen(3000); //tells node.js the port to listen to for incoming HTTP requests.
