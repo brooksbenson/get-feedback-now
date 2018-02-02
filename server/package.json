@@ -1,0 +1,11 @@
+{
+  "name": "get-feedback-now",
+  "version": "1.0.0",
+  "description": "An application for helping business owners get feedback on their product or service.",
+  "main": "index.js",
+  "author": "Brooks Benson",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}

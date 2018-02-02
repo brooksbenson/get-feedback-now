@@ -4,7 +4,7 @@ Get Feedback Now is an application that enables a business owner to get feedback
 
 ## Campaigns
 
-Users will be able to purchase credits that they can exchange for campaigns. A campaign is user-curated survey sent to a list of emails. The email will contain a link where recipients can provide feedback. This feedback will be organized under the campaign, allowing the user to see feedback instantaneously.
+Users will be able to purchase credits that they can exchange for campaigns. A campaign is a user-curated survey sent to a list of emails. The email will contain a link where recipients can provide feedback. This feedback will be organized under the campaign, allowing the user to see feedback instantaneously.
 
 ### Technology
 
