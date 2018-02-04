@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
   res.send({hi: 'hello'});
 });
 
-const PORT = process.env.port || 3000;
+const PORT = process.env.PORT || 3000;
 //if our application is running in the Heroku environment,
 //then process.env.PORT will be defined, telling our Node.js
 //application which port to listen to for incoming HTTP requests
