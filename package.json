@@ -7,10 +7,10 @@
   "license": "MIT",
   "engines": {
     "node": "8.8.1",
-    "npm": "5.4.2"
+    "yarn": "1.2.1"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node server/index.js"
   },
   "dependencies": {
     "express": "^4.16.2"
