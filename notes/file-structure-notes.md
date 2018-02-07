@@ -15,3 +15,7 @@ Helper modules and business logic
 ### index.js
 
 Helper modules and business logic
+
+### models
+
+Contains our mongoose models
