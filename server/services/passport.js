@@ -13,6 +13,7 @@ passport.use(
       callbackURL: 'http://localhost:3000/auth/google/callback' //route handler for when Google redirects user back to our app
     },
     (accessToken, refreshToken, profile, done) => {
+      console.log(profile);
       new UserClass({ googleID: profile.id }).save();
     }
   )
