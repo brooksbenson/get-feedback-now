@@ -21,6 +21,14 @@ The defining object is used to decide about how records will be represented in o
 
 The mongoose.model method is used to define mongoose classes and to load mongoose classes. To create one, provide a name as the first argument, and a Schema as the second. To load one, simply provide the previously created Model Class name to the method and bind it to the environment that needs it.
 
+### Queries
+
+Queries are made on a collection by invoking query methods on model classes. Query methods are passed a query object that defines the search parameters.
+
+#### findOne
+
+findOne is a query method used to retrieve a single record from a database. 
+
 
 ## Model Instance
 

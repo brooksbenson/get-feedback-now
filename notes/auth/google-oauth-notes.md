@@ -19,6 +19,14 @@ If a user permits our application to access their data, Google is going allow us
 5. Define a callback function as the second argument to GoogleStrategy
 6. To refer to the GoogleStrategy within route handlers, use passport.authenticate
 
-### First-time
+### GoogleStrategy callback
 
-If user hasn't logged in before, we'll create a record in our users collection.
+The GoogleStrategy callback takes four arguments: accessToken, refreshToken, profile, and done.
+
+#### profile
+
+The profile argument is an object that contains the resources we requested from Google.
+
+#### done
+
+done is a function to be invoked after we have decided to conclude our communication with Google.

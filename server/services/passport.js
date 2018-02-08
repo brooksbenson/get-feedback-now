@@ -5,6 +5,11 @@ const keys = require('../config/keys');
 
 const User = mongoose.model('users');
 
+passport.serializeUser((user, done) => done(null, user.id));
+passport.deserializeUser((id, done) => {
+  User.findById(id).then(user => done(null, user));
+});
+
 passport.use(
   new GoogleStrategy(
     {
@@ -12,9 +17,18 @@ passport.use(
       clientSecret: keys.googleClientSecret,
       callbackURL: 'http://localhost:3000/auth/google/callback' //route handler for when Google redirects user back to our app
     },
-    (accessToken, refreshToken, profile, done) => {
-      console.log(profile);
-      new UserClass({ googleID: profile.id }).save();
+    function(accessToken, refreshToken, profile, done) {
+      User.findOne({ googleID: profile.id })
+        .then(existingUser => {
+          if (existingUser) {
+            done(null, existingUser); //is passed to serializeUser
+          } else {
+            const user = new User({ googleID: profile.id });
+            user.save()
+              .then(user => done(null, user)) //is passed to serializeUser
+              .catch((err) => console.log('failed to save new user'));
+          }
+        })
     }
   )
 );
