@@ -15,7 +15,7 @@ passport.use(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: 'http://localhost:3000/auth/google/callback' //route handler for when Google redirects user back to our app
+      callbackURL: `${keys.googleCallbackURI}/auth/google/callback` //route handler for when Google redirects user back to our app
     },
     function(accessToken, refreshToken, profile, done) {
       User.findOne({ googleID: profile.id })
