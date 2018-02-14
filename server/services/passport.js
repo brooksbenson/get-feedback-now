@@ -15,20 +15,14 @@ passport.use(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: `${keys.googleCallbackURI}/auth/google/callback` //route handler for when Google redirects user back to our app
+      callbackURL: `/auth/google/callback`,
+      proxy: true
     },
-    function(accessToken, refreshToken, profile, done) {
-      User.findOne({ googleID: profile.id })
-        .then(existingUser => {
-          if (existingUser) {
-            done(null, existingUser); //is passed to serializeUser
-          } else {
-            const user = new User({ googleID: profile.id });
-            user.save()
-              .then(user => done(null, user)) //is passed to serializeUser
-              .catch((err) => console.log('failed to save new user'));
-          }
-        })
+    async (accessToken, refreshToken, profile, done) => {
+      const user = await User.findOne({ googleID: profile.id });
+      user 
+        ? done(null, user)
+        : done(null, await new User({googleID: profile.id}).save())
     }
   )
 );

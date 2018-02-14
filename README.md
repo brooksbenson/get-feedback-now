@@ -4,8 +4,8 @@ Get Feedback Now is an application for collecting feedback on a product or servi
 
 ## Campaigns
 
-Campaigns are basically buckets for feedback. A user can create a survey to couple with a campaign, then can send out a batch of emails with links to the survey, all from the app. The survey results will be organized under the campaign in the UI.
+Campaigns are basically buckets for feedback. A user can create a campaign and a survey to couple with it, then can send a batch of emails with links to the survery, all from the app. The survey results will be organized under the campaign in the UI.
 
-### Technology
+## Technology
 
 The front end makes use of React and Redux, and the backend uses Express, MongoDB, and Passport.

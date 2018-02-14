@@ -11,9 +11,7 @@
   },
   "scripts": {
     "start": "node server/index.js",
-    "server": "nodemon server/index.js",
-    "client": "yarn run start --prefix server/client",
-    "dev": "concurrently \"yarn run server\" \"yarn run client\""
+    "server": "nodemon server/index.js"
   },
   "dependencies": {
     "cookie-session": "^2.0.0-beta.3",
