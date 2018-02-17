@@ -18,8 +18,19 @@ Action objects describe how the state should change to a reducer.
 
 Actions generators are an interface for producing consistent action objects.
 
+### thunk
+
+Thunk is a middleware for Redux. It allows us to return a function that eventually
+returns an action object from our action generators, rather than just an action object.
+The function that is returned from a thunk is passed the dispatch function, 
+
 
 ## API
+
+## dispatch
+
+The dispatch function is responsible for taking action objects and passing
+them to reducers, which results in an updated state.
 
 ### createStore
 
