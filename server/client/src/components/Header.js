@@ -1,22 +1,37 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
+
+  renderAuthStatus() {
+    switch (this.props.isLoggedIn) {
+      case null: 
+        return 'Pending';
+      case false: 
+        return <a href='/auth/google'> Login with Google </a>;
+      default: 
+        return <a href='/api/logout'> Logout </a>;
+    }
+  }
+
+  giveHomeRoute() {
+    return 
+  }
+
   render() {
     return (
-      <header>
-        <nav>
-          <div className='nav-wrapper'>
-            <a href='#' className='brand-logo'>
-              Get Feedback Now
-            </a>
-            <ul className='right'>
-              <li>
-                <a>Login With Google</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </header>
+      <nav>
+        <div className='nav-wrapper'>
+          <Link
+            className='brand-logo' 
+            to={this.props.isLoggedIn ? '/surveys' : '/'} >
+            Get Feedback Now 
+          </Link> 
+        <ul className='right'>
+          <li>{this.renderAuthStatus()}</li>
+        </ul>
+        </div>
+      </nav>
     );
   }
 };
