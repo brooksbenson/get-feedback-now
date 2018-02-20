@@ -7,4 +7,12 @@ export const fetchUserStatus = () => async dispatch => {
     type: USER_STATUS,
     payload: data
   });
-}
+};
+
+export const handleStripeToken = (token) => async dispatch => {
+  const { data } = await axios.post('/api/stripe', token);
+  dispatch({
+    type: USER_STATUS,
+    payload: data
+  });
+};

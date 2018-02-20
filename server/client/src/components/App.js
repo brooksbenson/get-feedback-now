@@ -20,7 +20,10 @@ class App extends Component {
       <div className='container'> 
         <BrowserRouter>
           <div>
-            <Header isLoggedIn={this.props.isLoggedIn} />
+            <Header 
+              isLoggedIn={this.props.isLoggedIn} 
+              handleStripeToken={this.props.handleStripeToken}  
+            />
             <Route exact path='/' component={Landing} />
             <Route exact path='/surveys' component={Dashboard} />
             <Route path='/surveys/new' component={NewSurvey} />

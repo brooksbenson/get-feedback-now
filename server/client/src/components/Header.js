@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Payments from './Payments';
 
 class Header extends Component {
 
-  renderAuthStatus() {
+  renderOptions() {
+    let options;
     switch (this.props.isLoggedIn) {
-      case null: 
-        return 'Pending';
-      case false: 
-        return <a href='/auth/google'> Login with Google </a>;
-      default: 
-        return <a href='/api/logout'> Logout </a>;
+      case null: break;
+      case false:
+        options = <li><a href='/auth/google'>Login With Google</a></li>;
+        break;
+      default:
+        options = [
+          <li key={'payments'}>
+            <Payments
+              handleStripeToken={this.props.handleStripeToken}
+            />
+          </li>,
+          <li key={'logout'}>
+            <a href='api/logout'>Logout</a>
+          </li>
+        ];
     }
-  }
-
-  giveHomeRoute() {
-    return 
+    return options;
   }
 
   render() {
@@ -27,9 +35,7 @@ class Header extends Component {
             to={this.props.isLoggedIn ? '/surveys' : '/'} >
             Get Feedback Now 
           </Link> 
-        <ul className='right'>
-          <li>{this.renderAuthStatus()}</li>
-        </ul>
+          <ul className='right'> {this.renderOptions()} </ul>
         </div>
       </nav>
     );

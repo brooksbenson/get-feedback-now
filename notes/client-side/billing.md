@@ -20,4 +20,13 @@ Checkout is a 3rd party embeddable payment form for applications. It comes in th
 
 ### Stripe Checkout React
 
-The native version of Stripe Checkout isn't exactly compatible with React, to make it so, we use the string checkout react npm module, a stripe checkout wrapper.
+The native version of Stripe Checkout isn't exactly compatible with React, to make it so, we use the stripe checkout react npm module, a stripe checkout wrapper component.
+
+#### Stripe Checkout React API
+
+*note*: To replace default button, pass a custom child element.
+- amount: number -- US cents
+- token: function -- callback that receives the response data from the Stripe servers
+- stripeKey: string -- an API key provided to us by Stripe
+
+For more info, checkout docs: https://www.npmjs.com/package/react-stripe-checkout
