@@ -3,6 +3,7 @@ import { USER_STATUS } from './types';
 
 export const fetchUserStatus = () => async dispatch => {
   const { data } = await axios.get('/api/current_user');
+  console.log(data);
   dispatch({
     type: USER_STATUS,
     payload: data

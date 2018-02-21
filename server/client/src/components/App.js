@@ -21,7 +21,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Header 
-              isLoggedIn={this.props.isLoggedIn} 
+              user={this.props.user} 
               handleStripeToken={this.props.handleStripeToken}  
             />
             <Route exact path='/' component={Landing} />
@@ -34,5 +34,5 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ auth }) => ({ isLoggedIn: auth.isLoggedIn });
+const mapStateToProps = ({ user }) => ({ user });
 export default connect(mapStateToProps, actions)(App);

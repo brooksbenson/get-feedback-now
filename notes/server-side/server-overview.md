@@ -14,6 +14,14 @@ Express is a Node.js web application framework that provides a robust set of fea
 
 Middleware in Express is used to modify incoming requests before they reach a route handler.
 
+### express.static
+
+A middleware that enables the server to send static files from a root directory, specified as a relative path by the first argument.
+
+### serving index.html
+
+If express doesn't recognize a route, it needs to know to send the index.html file. To do this, setup a route with the patch specified as '*', then use the res.sendFile method and provide an absolute path to the index.html file.
+
 #### cookie-session
 
 Cookie-session is some middleware for Express applications. It will attach a property

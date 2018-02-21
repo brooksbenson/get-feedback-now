@@ -1,4 +1,8 @@
-# Pre-deployment Checklist
+# Deployment
+
+How to deploy
+
+## Pre-deployment Checklist
 
 1. Dynamic Port Binding
 
@@ -22,10 +26,15 @@ The start script tells Heroku what command to run to start our server.
 Heroku will install our modules for us.
 
 
-# First Time Deployment Checklist
+## First Time Deployment Checklist
 
 1. Create app using heroku create
 2. Create a remote branch pointing url provided by heroku
 3. Push master branch to remote heroku branch
 4. Debug
 5. Run heroku open to see new application
+
+## Client management
+
+1. run the build script in the client
+2. make sure express serves up index.html when necessary. (see server notes).
