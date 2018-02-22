@@ -8,7 +8,7 @@ How to deploy
 
 If our application is running in the Heroku environemt, then the
 process.env.PORT environemt variable will be defined by Heroku. Make sure
-the application is listening for HTTP requests on the port when in production
+the application is listening for HTTP requests on that port when in production
 
 2. Define the node environment
 
@@ -34,7 +34,8 @@ Heroku will install our modules for us.
 4. Debug
 5. Run heroku open to see new application
 
-## Client management
+### Heroku Build Process
 
-1. run the build script in the client
-2. make sure express serves up index.html when necessary. (see server notes).
+Telling Heroku to run specific processes upon certain project life cycle events, define the *heroku-prebuild* or the *heroku-postbuild* scripts.
+
+The postbuild script defined in this project tells Heroku to set the *NPM_CONFIG_PRODUCION* env variable to false, which tells Heroku to install devDependencies when running the following commands: *yarn add --prefix server/client* (tells Heroku to install all dependencies in the client directory) && *yarn run build --prefix server/client* which tells Heroku to run the build script inside of the client directory.
